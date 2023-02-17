@@ -3,6 +3,10 @@ import { Header } from './components/Header'
 import './styles/global.css'
 import Image1 from './assets/image1.png'
 import Image2 from './assets/image2.png'
+import Playdround from './assets/playground.png'
+import Numbers from './assets/numbers.png'
+import BookImage from './assets/book.png'
+import LogicalThinking from './assets/logical-thinking.png'
 import { Button } from './components/Button'
 import { Backpack, Book, CaretRight, Student } from 'phosphor-react'
 
@@ -13,7 +17,7 @@ function App() {
       <Header/>
       <main className="w-full mt-6 flex flex-col gap-10">
         <section className='w-full'>
-          <div className='w-full flex flex-col-reverse items-center lg:relative md:flex-row'>
+          <div className='w-full flex flex-col items-center lg:relative md:flex-row'>
             <div className='lg:max-w-[50%] flex flex-col gap-1 lg:gap-3 lg:absolute lg:left-0'>
               <span className='text-sm lg:text-base font-bold text-orange-500'>Junte-se a nós</span>
               <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>+ de 100 alunos em confiam  nós</h3>
@@ -70,12 +74,12 @@ function App() {
 
        
 
-        <section className='w-full flex flex-col md:flex-row-reverse gap-4 justify-around items-center'>
+        <section className='w-full flex flex-col md:flex-row-reverse gap-4 justify-around md:items-center'>
           <div className='w-full'>
             <img src={Image2} alt="menino segurando livro" className='object-cover'/>
           </div>
 
-          <div className='flex flex-col gap-3 max-w-[50%]'>
+          <div className='flex flex-col gap-3 md:max-w-[50%]'>
             <div className='w-[50px] h-[2px] bg-orange-400' />
             <h2 className='font-bold text-2xl lg:text-4xl'>Quem somos nós?</h2>
             <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
@@ -102,7 +106,63 @@ function App() {
         </section>
 
         <section>
+          <div className='flex flex-col gap-3'>
+            <span className='font-bold text-orange-500 text-sm lg:text-base'>Academia de estudos</span>
+            <h3 className='font-bold text-2xl lg:text-4xl leading-tight'>Nossos cursos educacionais</h3>
+            <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
+              Aqui pensamos nos melhores formações academicas para seu filho.
+            </p>
+          </div>
 
+          <div className='mt-10 flex flex-col gap-5 items-center justify-center'>
+            <div className='w-[70%] bg-white rounded p-3'>
+              <div className='w-full flex place-items-center'>
+                <img src={Playdround} alt="parquinho de criança" />
+              </div>
+              <div className=' flex flex-col gap-3 mt-4'>
+                <span className='font-bold text-orange-500 text-sm lg:text-base'>Academia de estudos</span>
+                <strong className='font-bold text-2xl lg:text-4xl leading-tight'>Berçario</strong>
+                <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
+                  Aqui pensamos nos melhores formações academicas para seu filho.
+                </p>
+                <Button btnAlt >
+                  ver mais
+                </Button>
+              </div>
+            </div>
+
+            <div className='w-[70%] bg-white rounded p-3'>
+              <div className='w-full flex place-items-center'>
+                <img src={Numbers} alt="parquinho de criança" />
+              </div>
+              <div className=' flex flex-col gap-3 mt-4'>
+                <span className='font-bold text-orange-500 text-sm lg:text-base'>Academia de estudos</span>
+                <strong className='font-bold text-2xl lg:text-4xl leading-tight'>Jardim 1</strong>
+                <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
+                  Aqui pensamos nos melhores formações academicas para seu filho.
+                </p>
+                <Button btnAlt >
+                  ver mais
+                </Button>
+              </div>
+            </div>
+
+            <div className='w-[70%] bg-white rounded p-3'>
+              <div className='w-full flex place-items-center'>
+                <img src={LogicalThinking} alt="parquinho de criança" />
+              </div>
+              <div className=' flex flex-col gap-3 mt-4'>
+                <span className='font-bold text-orange-500 text-sm lg:text-base'>Academia de estudos</span>
+                <strong className='font-bold text-2xl lg:text-4xl leading-tight'>Jardim 2</strong>
+                <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
+                  Aqui pensamos nos melhores formações academicas para seu filho.
+                </p>
+                <Button btnAlt >
+                  ver mais
+                </Button>
+              </div>
+            </div>
+          </div>
         </section>
 
       </main>
