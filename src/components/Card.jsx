@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
 export function Card({ children, title, subtitle, description}) {
+
+    const navigate = useNavigate()
+
     return (
-        <div className='w-[350px]  bg-white rounded py-9 px-4 flex flex-col items-center'>
+        <a className='w-[350px]  bg-white rounded py-9 px-4 flex flex-col items-center' onClick={() => navigate("/courses")}>
             <div className='lg:w-[200px] flex place-items-center'>
                 {children}
             </div>
@@ -18,6 +22,6 @@ export function Card({ children, title, subtitle, description}) {
                 </Button>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
