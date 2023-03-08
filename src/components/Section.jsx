@@ -13,7 +13,7 @@ export function SectionCard({children, title, description}) {
         <>
         {
             description ? (
-                <div className='w-full max-w-xs p-4 bg-white flex flex-col gap-3 items-start'>
+                <div className='snap-center min-w-[200px] lg:w-full max-w-xs p-4 bg-white flex flex-col gap-3 items-start'>
                     <div className="flex gap-1 items-center md:gap-2">
                         <div className='p-2 bg-orange-500 rounded-full w-fit text-white text-lg md:text-2xl lg:text-4xl'>
                             {children}
@@ -24,7 +24,7 @@ export function SectionCard({children, title, description}) {
                     <p className='text-xs text-zinc-500 lg:text-base'>{description}</p>
                 </div>
             ) : (
-                <div className='w-full max-w-xs p-4 bg-white flex gap-3 items-center justify-center'>
+                <div className='snap-center min-w-[200px] lg:w-full max-w-xs p-4 bg-white flex gap-3 items-center justify-center'>
                     <div className="h-full flex flex-col gap-1 items-center justify-center md:gap-3">
                         <div className='p-2 bg-orange-500 rounded-full w-fit text-white text-lg md:text-2xl lg:text-4xl'>
                             {children}

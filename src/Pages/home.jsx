@@ -43,9 +43,9 @@ export function Home() {
                         </div>
                     </div>
 
-                    <article className='w-full flex flex-col gap-2 justify-around md:flex-row -mt-1'>
+                    <article className='w-full snap-mandatory snap-x flex overflow-auto gap-2 md:justify-around md:flex-row -mt-1 p-2'>
                         <SectionCard title='Formação Academica' description='...'>
-                        <Student weight="fill" size={28} />
+                            <Student weight="fill" size={28} />
                         </SectionCard>
 
                         <SectionCard title='Cursos extracurriculares' description='...'>
@@ -100,7 +100,7 @@ export function Home() {
                         </p>
                         </div>
 
-                        <div className='mt-10 flex flex-col md:flex-row gap-5 items-center justify-evenly'>
+                        <div className='mt-10 snap-mandatory snap-x overflow-auto flex md:flex-row gap-5 '>
                         <Card
                             title='Berçario'
                             subtitle='Academia de estudos'

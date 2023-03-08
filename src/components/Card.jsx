@@ -6,7 +6,7 @@ export function Card({ children, title, subtitle, description}) {
     const navigate = useNavigate()
 
     return (
-        <a className='w-[350px]  bg-white rounded py-9 px-4 flex flex-col items-center' onClick={() => navigate("/courses")}>
+        <a className='min-w-[230px] md:min-w-[200px] snap-center bg-white rounded py-9 px-4 flex flex-col items-center' onClick={() => navigate("/courses")}>
             <div className='lg:w-[200px] flex place-items-center'>
                 {children}
             </div>

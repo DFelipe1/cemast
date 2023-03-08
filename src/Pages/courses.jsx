@@ -42,7 +42,7 @@ export function Courses() {
                         </div>
                     </div>
 
-                    <article className='w-full flex flex-col gap-2 justify-around md:flex-row mt-6'>
+                    <article className='w-full snap-mandatory snap-x flex overflow-auto gap-2 md:justify-around md:flex-row mt-6'>
                         <SectionCard title='Gestão de emoções'>
                             <Heart weight="regular" size={24}/>
                         </SectionCard>
