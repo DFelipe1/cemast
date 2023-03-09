@@ -1,24 +1,41 @@
-import { Header } from '../components/Header'
+import { useNavigate } from 'react-router-dom'
+import { Backpack, Book, Student} from 'phosphor-react'
+import emailjs from '@emailjs/browser';
 
-import Image1 from '../assets/image1.png'
-import Image2 from '../assets/image2.png'
-import Playdround from '../assets/playground.png'
-import Numbers from '../assets/numbers.png'
-import BookImage from '../assets/book.png'
-import LogicalThinking from '../assets/logical-thinking.png'
 import { Button } from '../components/Button'
-import { Backpack, Book, CaretRight, Student} from 'phosphor-react'
 import { Input } from '../components/Input'
 import { Textarea } from '../components/Textarea'
 import { SectionCard, Section } from '../components/Section'
 import { Card } from '../components/Card'
 import { Footer } from '../components/Footer'
-import { useNavigate } from 'react-router-dom'
+
+import Image1 from '../assets/image1.png'
+import Image2 from '../assets/image2.png'
+import Playdround from '../assets/playground.png'
+import Numbers from '../assets/numbers.png'
+import LogicalThinking from '../assets/logical-thinking.png'
+import { useRef } from 'react';
+
 
 
 export function Home() {
 
     const navigate = useNavigate()
+    const form = useRef();
+
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLETE_MESSAGE, form.current, import.meta.env.VITE_PUBLIC_KEY)
+        .then((result) => {
+            alert('success')
+        }, (error) => {
+            alert('error')
+        });
+
+        e.target.reset()
+    }
 
     return (
         <div className="w-full text-textColor">
@@ -140,11 +157,11 @@ export function Home() {
                         </p>
                     </div>
 
-                    <form className='mt-7 flex flex-col gap-4 md:px-11' action="https://formsubmit.co/yukiyo525125@gmail.com" method="POST">
+                    <form ref={form} onSubmit={e => sendEmail(e)} className='mt-7 flex flex-col gap-4 md:px-11'>
                         <div className='flex flex-col md:flex-row md:justify-between gap-4'>
-                        <input type="hidden" name="_captcha" value="false" />
+                        {/* <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_template" value="box" />
-                        <input type="hidden" name="_next" value="https://cemast.vercel.app"/>
+                        <input type="hidden" name="_next" value="https://cemast.vercel.app"/> */}
                         <Input
                             id="name"
                             label="Nome"
