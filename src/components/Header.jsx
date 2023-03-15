@@ -27,10 +27,10 @@ export function Header({isNavigate}) {
                         </button>
 
                         <nav className="hidden md:flex gap-4 md:gap-6 items-center justify-center text-zinc-400 font-bold text-xs md:text-sm">
-                            <a href="#home" className="hover:text-zinc-600 transition-colors duration-500">Inicio</a>
-                            <a href="#about" className="hover:text-zinc-600 transition-colors duration-500">Sobre</a>
-                            <a href="#courses" className="hover:text-zinc-600 transition-colors duration-500">Cursos</a>
-                            <a href="#contact" className="hover:text-zinc-600 transition-colors duration-500">Contato</a>
+                            <a href="/#home" className="hover:text-zinc-600 transition-colors duration-500">Inicio</a>
+                            <a href="/#about" className="hover:text-zinc-600 transition-colors duration-500">Sobre</a>
+                            <a href="/#courses" className="hover:text-zinc-600 transition-colors duration-500">Cursos</a>
+                            <a href="/#contact" className="hover:text-zinc-600 transition-colors duration-500">Contato</a>
                         </nav>
 
                         <div className="hidden md:flex" >

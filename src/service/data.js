@@ -18,37 +18,21 @@ export const data = [
             A Educação Infantil, cuja finalidade primordial é o desenvolvimento integral da 
             criança até cinco anos de idade, nos aspectos físico, psicológico, intelectual e 
             social, complementando a ação da família e da comunidade, tem como objetivos:
-
-            <br/>
-            <br/>
-            <span className="flex flex-col gap-3 ">
-                <p>
+                n/    
                     a) Estabelecer vínculos afetivos, ampliando suas possibilidades de comunicação e interação social;
-                </p>
-                <p>
+                    n/
                     b) Respeitar a diversidade e desenvolver atitudes de ajuda e colaboração;
-                </p>
-                <p>
+                    n/
                     c) Incentivar a autonomia nas atividades cotidianas, assim como nas descobertas e aprendizagens;
-                </p>
-                <p>
+                    n/
                     d) Observar e explorar o ambiente com atitude de curiosidade;
-                </p>
-                <p>
-                    e) Desenvolver suas expressões e habilidades de diferentes formas, estimulando suas áreas emocional, física, intelectual, e social;
-                </p>
-                <p>
+                    n/
                     f) Brincar, expressando emoções, sentimentos, pensamentos, desejos e necessidades;
-                </p>
-                <p>
+                    n/
                     g) Utilizar as diferentes linguagens de forma a compreender e ser compreendido, expressar suas idéias, sentimentos, necessidades e desejos;
-                </p>
-                <p>
+                    n/
                     h) Conhecer algumas manifestações culturais, de interesse, respeito e participação, valorizando a diversidade.
-                </p>
-            
-            </span>
-            <br/>
+                n/
             Visamos formar cidadãos ativos, críticos e conscientes sobre si e sobre a realidade que os cerca, 
             além de incentivar o desenvolvimento humano em sentido pleno. A aplicabilidade desta proposta se faz 
             extremamente necessária desde as mais iniciais fases da educação e deve ser mantida até as fases finais, 
@@ -74,37 +58,21 @@ export const data = [
             A Educação Infantil, cuja finalidade primordial é o desenvolvimento integral da 
             criança até cinco anos de idade, nos aspectos físico, psicológico, intelectual e 
             social, complementando a ação da família e da comunidade, tem como objetivos:
-
-            <br/>
-            <br/>
-            <span className="flex flex-col gap-3 ">
-                <p>
+                n/    
                     a) Estabelecer vínculos afetivos, ampliando suas possibilidades de comunicação e interação social;
-                </p>
-                <p>
+                    n/
                     b) Respeitar a diversidade e desenvolver atitudes de ajuda e colaboração;
-                </p>
-                <p>
+                    n/
                     c) Incentivar a autonomia nas atividades cotidianas, assim como nas descobertas e aprendizagens;
-                </p>
-                <p>
+                    n/
                     d) Observar e explorar o ambiente com atitude de curiosidade;
-                </p>
-                <p>
-                    e) Desenvolver suas expressões e habilidades de diferentes formas, estimulando suas áreas emocional, física, intelectual, e social;
-                </p>
-                <p>
+                    n/
                     f) Brincar, expressando emoções, sentimentos, pensamentos, desejos e necessidades;
-                </p>
-                <p>
+                    n/
                     g) Utilizar as diferentes linguagens de forma a compreender e ser compreendido, expressar suas idéias, sentimentos, necessidades e desejos;
-                </p>
-                <p>
+                    n/
                     h) Conhecer algumas manifestações culturais, de interesse, respeito e participação, valorizando a diversidade.
-                </p>
-            
-            </span>
-            <br/>
+                n/
             Visamos formar cidadãos ativos, críticos e conscientes sobre si e sobre a realidade que os cerca, 
             além de incentivar o desenvolvimento humano em sentido pleno. A aplicabilidade desta proposta se faz 
             extremamente necessária desde as mais iniciais fases da educação e deve ser mantida até as fases finais, 
@@ -130,37 +98,21 @@ export const data = [
             A Educação Infantil, cuja finalidade primordial é o desenvolvimento integral da 
             criança até cinco anos de idade, nos aspectos físico, psicológico, intelectual e 
             social, complementando a ação da família e da comunidade, tem como objetivos:
-
-            <br/>
-            <br/>
-            <span className="flex flex-col gap-3 ">
-                <p>
+                n/    
                     a) Estabelecer vínculos afetivos, ampliando suas possibilidades de comunicação e interação social;
-                </p>
-                <p>
+                    n/
                     b) Respeitar a diversidade e desenvolver atitudes de ajuda e colaboração;
-                </p>
-                <p>
+                    n/
                     c) Incentivar a autonomia nas atividades cotidianas, assim como nas descobertas e aprendizagens;
-                </p>
-                <p>
+                    n/
                     d) Observar e explorar o ambiente com atitude de curiosidade;
-                </p>
-                <p>
-                    e) Desenvolver suas expressões e habilidades de diferentes formas, estimulando suas áreas emocional, física, intelectual, e social;
-                </p>
-                <p>
+                    n/
                     f) Brincar, expressando emoções, sentimentos, pensamentos, desejos e necessidades;
-                </p>
-                <p>
+                    n/
                     g) Utilizar as diferentes linguagens de forma a compreender e ser compreendido, expressar suas idéias, sentimentos, necessidades e desejos;
-                </p>
-                <p>
+                    n/
                     h) Conhecer algumas manifestações culturais, de interesse, respeito e participação, valorizando a diversidade.
-                </p>
-            
-            </span>
-            <br/>
+                n/
             Visamos formar cidadãos ativos, críticos e conscientes sobre si e sobre a realidade que os cerca, 
             além de incentivar o desenvolvimento humano em sentido pleno. A aplicabilidade desta proposta se faz 
             extremamente necessária desde as mais iniciais fases da educação e deve ser mantida até as fases finais, 

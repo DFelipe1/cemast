@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Backpack, Book, Student} from 'phosphor-react'
+import { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 import { Button } from '../components/Button'
@@ -9,12 +10,13 @@ import { SectionCard, Section } from '../components/Section'
 import { Card } from '../components/Card'
 import { Footer } from '../components/Footer'
 
+import { data } from '../service/data'
+
 import Image1 from '../assets/image1.png'
 import Image2 from '../assets/image2.png'
 import Playdround from '../assets/playground.png'
 import Numbers from '../assets/numbers.png'
 import LogicalThinking from '../assets/logical-thinking.png'
-import { useRef } from 'react';
 
 
 
@@ -37,6 +39,10 @@ export function Home() {
         e.target.reset()
     }
 
+    useEffect(() => {
+        window.scroll(0, 0)
+    },[])
+
     return (
         <div className="w-full text-textColor">
             {/* <Header/> */}
@@ -45,7 +51,7 @@ export function Home() {
                     <div className='w-full flex flex-col items-center lg:relative md:flex-row'>
                         <div className='lg:max-w-[50%] flex flex-col gap-1 lg:gap-3 xl:absolute lg:left-0'>
                         <span className='text-sm lg:text-base font-bold text-orange-500'>Junte-se a nós</span>
-                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>+ de 100 alunos em confiam  nós</h3>
+                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>+ de 100 alunos que confiam  nós</h3>
                         <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
                             Cada dia traz consigo um novo conjunto de possibilidades de aprendizado.
                         </p>
@@ -118,33 +124,19 @@ export function Home() {
                         </div>
 
                         <div className='mt-10 snap-mandatory snap-x overflow-auto flex md:flex-row gap-5 '>
-                        <Card
-                            title='Berçario'
-                            subtitle='Academia de estudos'
-                            description='Aqui pensamos nos melhores formações academicas para seu filho.'
-                        >
-                            <img src={Playdround} alt="parquinho de criança" />
-                        </Card>
-
-                        <Card
-                            title='Jardim 1'
-                            subtitle='Academia de estudos'
-                            description='Aqui pensamos nos melhores formações academicas para seu filho.'
-                        >
-
-                            <img src={Numbers} alt="parquinho de criança" />
-
-                        </Card>
-
-                        <Card
-                            title='Jardim 2'
-                            subtitle='Academia de estudos'
-                            description='Aqui pensamos nos melhores formações academicas para seu filho.'
-                        >
-
-                            <img src={LogicalThinking} alt="parquinho de criança" />
-
-                        </Card>
+                            {data.map((course, i) => {
+                                return (
+                                    <Card
+                                        key={i}
+                                        title={course.title}
+                                        subtitle='Academia de estudos'
+                                        description={course.description}
+                                        course={course}
+                                    >
+                                        <img src={Playdround} alt="parquinho de criança" />
+                                    </Card>
+                                )
+                            })}
                     </div>
                 </Section>
 
