@@ -1,6 +1,6 @@
 export function Section({children, id, bg}) {
     return (
-        <section id={id} className={`w-full py-16 ${bg}`}>
+        <section id={id} className={`w-full py-8 ${bg}`}>
           <div className='w-full max-w-[85%] mx-auto'>
             {children}
           </div>

@@ -14,9 +14,7 @@ import { data } from '../service/data'
 
 import Image1 from '../assets/image1.png'
 import Image2 from '../assets/image2.png'
-import Playdround from '../assets/playground.png'
-import Numbers from '../assets/numbers.png'
-import LogicalThinking from '../assets/logical-thinking.png'
+
 
 
 
@@ -133,7 +131,7 @@ export function Home() {
                                         description={course.description}
                                         course={course}
                                     >
-                                        <img src={Playdround} alt="parquinho de criança" />
+                                        <img src={course.image} alt="parquinho de criança" />
                                     </Card>
                                 )
                             })}

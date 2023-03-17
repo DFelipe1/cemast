@@ -1,5 +1,6 @@
 export const data = [
     {
+        image: './playground.png',
         title: 'Educação infantil',
         description: 'Nossa proposta pedagógica é formulada considerando a criança como um ser em contrução, mas que já possui inúmeros conhecimentos e estes devem ser ampliados e articulados a uma realidade concreta. Neste sentido, devem ser trabalhados temas que envolvam e auxiliem:',
         cards: [
@@ -40,6 +41,7 @@ export const data = [
         `
     },
     {
+        image: './numbers.png',
         title: 'Jardim I',
         description: 'Nossa proposta pedagógica é formulada considerando a criança como um ser em contrução, mas que já possui inúmeros conhecimentos e estes devem ser ampliados e articulados a uma realidade concreta. Neste sentido, devem ser trabalhados temas que envolvam e auxiliem:',
         cards: [
@@ -80,6 +82,7 @@ export const data = [
         `
     },
     {
+        image: './logical-thinking.png',
         title: 'Jardim II',
         description: 'Nossa proposta pedagógica é formulada considerando a criança como um ser em contrução, mas que já possui inúmeros conhecimentos e estes devem ser ampliados e articulados a uma realidade concreta. Neste sentido, devem ser trabalhados temas que envolvam e auxiliem:',
         cards: [
