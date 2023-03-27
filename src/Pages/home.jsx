@@ -48,10 +48,10 @@ export function Home() {
                 <Section id='home'>
                     <div className='w-full flex flex-col items-center lg:relative md:flex-row'>
                         <div className='lg:max-w-[50%] flex flex-col gap-1 lg:gap-3 xl:absolute lg:left-0'>
-                        <span className='text-sm lg:text-base font-bold text-orange-500'>Junte-se a nós</span>
-                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>+ de 100 alunos que confiam  nós</h3>
+                        <span className='text-sm lg:text-base font-bold text-orange-500'>{data.subtile}</span>
+                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>{data.title}</h3>
                         <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
-                            Cada dia traz consigo um novo conjunto de possibilidades de aprendizado.
+                            {data.prev}
                         </p>
                         <div className='flex gap-2 mt-3'>
                             <Button Click={() => navigate('/matricular')}>Matricula-se</Button>
@@ -65,15 +65,15 @@ export function Home() {
                     </div>
 
                     <article className='w-full snap-mandatory snap-x flex overflow-auto gap-2 md:justify-around md:flex-row -mt-1 p-2'>
-                        <SectionCard title='Formação Academica' description='...'>
+                        <SectionCard title={data.cards[0].title} description={data.cards[0].description}>
                             <Student weight="fill" size={28} />
                         </SectionCard>
 
-                        <SectionCard title='Cursos extracurriculares' description='...'>
+                        <SectionCard title={data.cards[1].title} description={data.cards[1].description}>
                             <Backpack weight="fill" size={28}/>
                         </SectionCard>
 
-                        <SectionCard title='Pedagogia' description='...'>
+                        <SectionCard title={data.cards[2].title} description={data.cards[2].description}>
                             <Book weight="fill" size={28}/>
                         </SectionCard>
                     </article>
@@ -91,13 +91,7 @@ export function Home() {
                             <div className='w-[50px] h-[2px] bg-orange-400' />
                             <h2 className='font-bold text-2xl lg:text-4xl'>Quem somos nós?</h2>
                             <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
-                                O Centro Educacional Pinheiros nasceu com o comprometimento e dedicação em proporcionar uma educação de qualidade e transparência desde à Educação Infantil até o Ensino Médio.
-                                <br />
-                                <br />
-                                Somos uma escola viva, desde 1993 desenvolvemos um trabalho de excelência. Com o compromisso de oferecer um ensino inovador alicerçado no rigor conceitual.
-                                Com mais de 30 anos, acreditamos que a beleza da vida vai além de uma sala de aula.
-                                <br />
-                                Acreditamos que a transparência seja de vital importância no relacionamento entre responsáveis/alunos e a escola.
+                               {data.about}
                             </p>
 
                             <strong className="font-bold text-orange-500 text-sm lg:text-base">Faça parte dessa historia.</strong>
@@ -122,7 +116,7 @@ export function Home() {
                         </div>
 
                         <div className='mt-10 snap-mandatory snap-x overflow-auto flex md:flex-row gap-5 '>
-                            {data.map((course, i) => {
+                            {data.couses.map((course, i) => {
                                 return (
                                     <Card
                                         key={i}
@@ -194,7 +188,7 @@ export function Home() {
                     </form>
                 </Section>
 
-                <Footer/>
+                <Footer links={data.links}/>
             </main>
             </div>
     )
