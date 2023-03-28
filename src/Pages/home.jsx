@@ -2,30 +2,54 @@ import { useNavigate } from 'react-router-dom'
 import { Backpack, Book, Student} from 'phosphor-react'
 import { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import * as yup from "yup";
 
 import { Button } from '../components/Button'
 import { Input } from '../components/Input'
 import { Textarea } from '../components/Textarea'
 import { SectionCard, Section } from '../components/Section'
 import { Card } from '../components/Card'
-import { Footer } from '../components/Footer'
 
-import { data } from '../service/data'
+
 
 import Image1 from '../assets/image1.png'
 import Image2 from '../assets/image2.png'
 
 
+const schema = yup.object({
+    name: yup.string().required("preencha o campo"),
+    phone: yup.number().required('preencha o campo').max(11).min(11),
+    email: yup.string().email().required('preencha o campo'),
+    subject: yup.string().required('preencha o campo'),
+    message: yup.string().max(500).required('preencha o campo')
+});
 
 
-export function Home() {
+
+
+export function Home({data}) {
 
     const navigate = useNavigate()
     const form = useRef();
 
 
-    function sendEmail(e) {
+    async function sendEmail(e) {
         e.preventDefault();
+        const inputs = {
+            name: form.current.name.value,
+            phone: form.current.tel.value,
+            email: form.current.email.value,
+            subject: form.current.subject.value,
+            message: form.current.message.value,
+        }
+
+        try {
+            await schema.validate(inputs)
+        } catch (error) {
+            alert('você não preencheu os campos defidamente, revise antes de enviar')
+            // e.target.reset()
+            return
+        }
 
         emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLETE_MESSAGE, form.current, import.meta.env.VITE_PUBLIC_KEY)
         .then((result) => {
@@ -78,7 +102,6 @@ export function Home() {
                         </SectionCard>
                     </article>
                 </Section>
-
 
             
                 <Section id='about' bg="bg-white">
@@ -143,40 +166,48 @@ export function Home() {
 
                     <form ref={form} onSubmit={e => sendEmail(e)} className='mt-7 flex flex-col gap-4 md:px-11'>
                         <div className='flex flex-col md:flex-row md:justify-between gap-4'>
-                        {/* <input type="hidden" name="_captcha" value="false" />
-                        <input type="hidden" name="_template" value="box" />
-                        <input type="hidden" name="_next" value="https://cemast.vercel.app"/> */}
-                        <Input
-                            id="name"
-                            label="Nome"
-                            placeholder="Digite seu nome"
-                            name="nome"
-                        />
-                        <Input
-                            id="tel"
-                            label="Telefone"
-                            placeholder="Digite seu número de celular"
-                            name="telefone"
-                        />
+                            {/* <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_template" value="box" />
+                            <input type="hidden" name="_next" value="https://cemast.vercel.app"/> */}
+                            <Input
+                                id="name"
+                                label="Nome"
+                                placeholder="Digite seu nome"
+                                name="nome"
+                                type="text"
+                                
+                            />
+                            <Input
+                                id="tel"
+                                label="Telefone"
+                                placeholder="Digite seu número de celular"
+                                name="telefone"
+                                type='tel'
+                        
+                            />
                         </div>
                         <Input
-                        id="email"
-                        label="Email"
-                        placeholder="Digite seu email"
-                        name="email"
+                            id="email"
+                            label="Email"
+                            placeholder="Digite seu email"
+                            name="email"
+                            type='email'
+                            
                         />
                         <Input
-                        id="subject"
-                        label="assunto"
-                        placeholder="Digite o assunto da mensagem"
-                        name="assunto"
+                            id="subject"
+                            label="assunto"
+                            placeholder="Digite o assunto da mensagem"
+                            name="assunto"
+                            
                         />
                         
                         <Textarea
-                        id="message"
-                        label="mensagem"
-                        placeholder="Digite sua mensagem"
-                        name="mensagem"
+                            id="message"
+                            label="mensagem"
+                            placeholder="Digite sua mensagem"
+                            name="mensagem"
+                            
                         />
 
                         <div className='w-[50%]'>
@@ -188,7 +219,7 @@ export function Home() {
                     </form>
                 </Section>
 
-                <Footer links={data.links}/>
+                {/* <Footer links={data.links}/> */}
             </main>
             </div>
     )

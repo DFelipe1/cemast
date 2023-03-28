@@ -1,7 +1,6 @@
 import { ArrowLeft, Cookie, Heart, Leaf } from "phosphor-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
-import { Footer } from "../components/Footer";
 import { Section, SectionCard } from "../components/Section";
 
 import Couse from '../assets/course2.png'
@@ -95,7 +94,6 @@ export function Courses() {
                 </Section>
             </main>
 
-            <Footer/>
         </div>
     )
 } 
