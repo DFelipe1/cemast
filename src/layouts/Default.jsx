@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 
 import { gql, useQuery } from 'urql';
 import { useEffect, useMemo } from "react";
+import { Loading } from "../components/Loading";
 
 const PageQuery = gql`
     query  {
@@ -88,7 +89,7 @@ export function Default() {
 
     
     if(result.fetching) {
-        return <>loading...</>
+        return <Loading/>
     }
     
     const links = result.data.page.links[0].links[0]

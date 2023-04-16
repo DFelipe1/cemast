@@ -14,8 +14,8 @@ export function Card({ children, title, subtitle, description, course}) {
             <div className='max-w-full flex flex-col gap-2 mt-4'>
                 <span className='font-bold text-orange-500 text-xs'>{subtitle}</span>
                 <strong className='font-bold text-xl lg:text-2xl leading-tight'>{title}</strong>
-                <p className='text-xs lg:text-sm text-zinc-500 truncate'>
-                    {description}
+                <p className='text-xs lg:text-sm text-zinc-500 '>
+                    {description.slice(0, 100).padEnd(103, '.') }
                 </p>
                 <div className='w-[60%]'>
                 <Button btnAlt Click={() => navigate(`/curso/${course.slug}`, { state: course })} >
