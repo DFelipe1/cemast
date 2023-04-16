@@ -5,6 +5,8 @@ export function Card({ children, title, subtitle, description, course}) {
 
     const navigate = useNavigate()
 
+    console.log(course)
+
     return (
         <a className='min-w-[230px] md:min-w-[200px] snap-center bg-white rounded py-9 px-4 flex flex-col items-center'>
             <div className='lg:w-[200px] flex place-items-center'>
@@ -17,7 +19,7 @@ export function Card({ children, title, subtitle, description, course}) {
                     {description}
                 </p>
                 <div className='w-[60%]'>
-                <Button btnAlt Click={() => navigate('courses/', { state: course })} >
+                <Button btnAlt Click={() => navigate(`/curso/${course.slug}`, { state: course })} >
                     ver mais
                 </Button>
                 </div>

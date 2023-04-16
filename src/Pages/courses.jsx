@@ -19,6 +19,9 @@ export function Courses() {
         window.scroll(0, 0)
     },[])
 
+    console.log(course)
+
+
     return (
         <div className="w-full text-textColor">
             <main className="w-full overflow-hidden mt-6 flex flex-col">
@@ -33,7 +36,7 @@ export function Courses() {
 
                             <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>{course.title}</h3>
                             <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
-                                {course.description}
+                                {course.home.prev}
                             </p>
                             <div className='flex gap-2 mt-3'>
                                 <Button Click={() => navigate('/matricular')}>Matricula-se</Button>
@@ -42,37 +45,31 @@ export function Courses() {
                         </div>
 
                         <div className='w-full lg:flex lg:justify-end'>
-                            <img src={Couse} alt="pintura a lapis" className='object-cover' />
+                            <img src={course.home.image.url} alt="pintura a lapis" className='object-cover' />
                         </div>
                     </div>
 
                     <article className='w-full snap-mandatory snap-x flex overflow-auto gap-2 md:justify-around md:flex-row mt-6'>
+                        {course.home.cards.map((card, i) => {
+                            return(
+                                <SectionCard key={i} data={card} isdescription/>
+                            )
+                        })}
                         
-                        <SectionCard title={course.cards[0].title}>
-                            <Heart weight="regular" size={24}/>
-                        </SectionCard>
-
-                        <SectionCard title={course.cards[1].title}>
-                            <Cookie weight="fill" size={24}/>
-                        </SectionCard>
-
-                        <SectionCard title={course.cards[2].title}>
-                            <Leaf weight="regular" size={24}/>
-                        </SectionCard>
                     </article>
                 </Section>
 
                 <Section id='about' bg="bg-white">
                     <div className='w-full my-16 lg:my-[100px] flex flex-col gap-4 justify-around md:flex-row md:items-center'>
                         <div className='w-full max-w-[50%]'>
-                            <img src={Teaching} alt="sala de aula" className='object-cover' />
+                            <img src={course.about.image.url} alt="sala de aula" className='object-cover' />
                         </div>
 
                         <div className='flex flex-col gap-3 md:max-w-[50%]'>
                             <div className='w-[50px] h-[2px] bg-orange-400' />
-                            <h2 className='font-bold text-2xl lg:text-4xl'>Como trabalhamos</h2>
+                            <h2 className='font-bold text-2xl lg:text-4xl'>{course.about.title}</h2>
                             <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
-                                {course.working}
+                                {course.about.description}
                             </p>
                         </div>
                     </div>
@@ -81,13 +78,19 @@ export function Courses() {
                         <div className='w-[50px] h-[2px] bg-orange-400' />
                             <h2 className='font-bold text-2xl lg:text-4xl'>Objetivos</h2>
                             <div className='flex flex-col gap-2'>
-                                {course.objectives.split('n/').map(objetive => {
+                                { 
+                                    course.description.text.split('\\n').map(objetive => {
                                     return (
                                         <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
-                                            {objetive}
+                                            {objetive.split('<p/>')}
                                         </p>
                                     )
+            
                                 })}
+
+                                {/* <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
+                                    {course.description.html}
+                                </p> */}
                                 
                             </div>
                         </div>

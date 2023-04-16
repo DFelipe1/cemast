@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import { Backpack, Book, Student} from 'phosphor-react'
 import { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
@@ -14,6 +14,8 @@ import { Card } from '../components/Card'
 
 import Image1 from '../assets/image1.png'
 import Image2 from '../assets/image2.png'
+import { gql, useQuery } from 'urql';
+
 
 
 const schema = yup.object({
@@ -25,13 +27,14 @@ const schema = yup.object({
 });
 
 
-
-
 export function Home({data}) {
+
+    const {home, about, courses} = useOutletContext();
+
 
     const navigate = useNavigate()
     const form = useRef();
-
+     
 
     async function sendEmail(e) {
         e.preventDefault();
@@ -66,16 +69,15 @@ export function Home({data}) {
     },[])
 
     return (
-        <div className="w-full text-textColor">
-            {/* <Header/> */}
+        // <div className="w-full text-textColor">
             <main className="w-full overflow-hidden mt-6 flex flex-col">
                 <Section id='home'>
                     <div className='w-full flex flex-col items-center lg:relative md:flex-row'>
                         <div className='lg:max-w-[50%] flex flex-col gap-1 lg:gap-3 xl:absolute lg:left-0'>
-                        <span className='text-sm lg:text-base font-bold text-orange-500'>{data.subtile}</span>
-                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>{data.title}</h3>
+                        <span className='text-sm lg:text-base font-bold text-orange-500'>{home.subtitle}</span>
+                        <h3 className='text-3xl lg:text-5xl  font-bold leading-tight'>{home.title}</h3>
                         <p className='text-sm lg:text-base text-zinc-500 tracking-wider'>
-                            {data.prev}
+                            {home.prev}
                         </p>
                         <div className='flex gap-2 mt-3'>
                             <Button Click={() => navigate('/matricular')}>Matricula-se</Button>
@@ -84,22 +86,17 @@ export function Home({data}) {
                         </div>
 
                         <div className='w-full lg:flex lg:justify-end'>
-                        <img src={Image1} alt="menina segurando uma maça" className='object-cover'/>
+                        <img src={home.image.url} alt="menina segurando uma maça" className='object-cover'/>
                         </div>
                     </div>
 
                     <article className='w-full snap-mandatory snap-x flex overflow-auto gap-2 md:justify-around md:flex-row -mt-1 p-2'>
-                        <SectionCard title={data.cards[0].title} description={data.cards[0].description}>
-                            <Student weight="fill" size={28} />
-                        </SectionCard>
-
-                        <SectionCard title={data.cards[1].title} description={data.cards[1].description}>
-                            <Backpack weight="fill" size={28}/>
-                        </SectionCard>
-
-                        <SectionCard title={data.cards[2].title} description={data.cards[2].description}>
-                            <Book weight="fill" size={28}/>
-                        </SectionCard>
+                        {home.cards.map((card, i) => {
+                            return(
+                                <SectionCard key={i} data={card}/>
+                            )
+                        })}
+                        
                     </article>
                 </Section>
 
@@ -107,14 +104,14 @@ export function Home({data}) {
                 <Section id='about' bg="bg-white">
                     <div className='w-full flex flex-col md:flex-row-reverse gap-4 justify-around md:items-center'>
                         <div className='w-full'>
-                            <img src={Image2} alt="menino segurando livro" className='object-cover'/>
+                            <img src={about.image.url} alt="menino segurando livro" className='object-cover'/>
                         </div>
 
                         <div className='flex flex-col gap-3 md:max-w-[50%]'>
                             <div className='w-[50px] h-[2px] bg-orange-400' />
-                            <h2 className='font-bold text-2xl lg:text-4xl'>Quem somos nós?</h2>
+                            <h2 className='font-bold text-2xl lg:text-4xl'>{about.title}</h2>
                             <p className='text-sm lg:text-base text-zinc-500 tracking-wider text-justify'>
-                               {data.about}
+                               {about.description}
                             </p>
 
                             <strong className="font-bold text-orange-500 text-sm lg:text-base">Faça parte dessa historia.</strong>
@@ -139,16 +136,16 @@ export function Home({data}) {
                         </div>
 
                         <div className='mt-10 snap-mandatory snap-x overflow-auto flex md:flex-row gap-5 '>
-                            {data.couses.map((course, i) => {
+                            {courses.map((course, i) => {
                                 return (
                                     <Card
                                         key={i}
-                                        title={course.title}
+                                        title={course.couses.title}
                                         subtitle='Academia de estudos'
-                                        description={course.description}
-                                        course={course}
+                                        description={course.couses.home.prev}
+                                        course={course.couses}
                                     >
-                                        <img src={course.image} alt="parquinho de criança" />
+                                        <img src={course.couses.image.url} alt="parquinho de criança" />
                                     </Card>
                                 )
                             })}
@@ -221,6 +218,6 @@ export function Home({data}) {
 
                 {/* <Footer links={data.links}/> */}
             </main>
-            </div>
+            // </div>
     )
 }

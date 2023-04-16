@@ -155,3 +155,4 @@ export const data = {
         adress: 'Estr. Rio São Paulo Variante - Jardim Guandu, Nova Iguaçu - RJ, 26297-459'
     }
 };
+

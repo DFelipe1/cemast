@@ -1,6 +1,6 @@
 import { ArrowRight, List, X } from "phosphor-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
 export function Header({isNavigate}) {
@@ -15,7 +15,7 @@ export function Header({isNavigate}) {
     return (
         <header className='w-full'>
             <div className='max-w-[85%] mx-auto py-5 flex items-center justify-between'>
-                <h1 className=" font-bold text-2xl"><a href="/">CEMAST</a></h1>
+                <h1 className=" font-bold text-2xl"><Link to="/">CEMAST</Link></h1>
 
                 {!isNavigate && (
                     <>
