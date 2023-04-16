@@ -5,7 +5,6 @@ export function Card({ children, title, subtitle, description, course}) {
 
     const navigate = useNavigate()
 
-    console.log(course)
 
     return (
         <a className='min-w-[230px] md:min-w-[200px] snap-center bg-white rounded py-9 px-4 flex flex-col items-center'>

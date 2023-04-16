@@ -86,7 +86,6 @@ export function Default() {
         query: PageQuery,
     });
 
-    console.log(result)
     
     if(result.fetching) {
         return <>loading...</>
