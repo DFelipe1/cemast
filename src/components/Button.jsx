@@ -1,28 +1,26 @@
+import clsx from "clsx"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export function Button({children, btnAlt, Click}){
+export function Button({children, btnAlt=false, Click, isLoading}){
 
 
     const navigate = useNavigate()
 
-    // if(onRegister) {
-    //     setRoute('/matricular')
-    // }
 
 
     return (
         <button 
-            
-            className={
-                !btnAlt ?
-                    ('font-bold text-xs lg:text-sm text-white py-2 px-4 lg:py-4 lg:px-4 rounded-md bg-orange-400 flex gap-3 items-center justify-center hover:brightness-110 transition-colors duration-500')
-                :
-                    ('font-bold text-xs lg:text-sm text-orange-400 py-2 px-4 lg:py-4 lg:px-4 rounded-md bg-transparent border-2 border-orange-400 hover:brightness-110 flex gap-3 items-center justify-center transition-colors duration-500')
-            }
+            disabled={isLoading}
+            className={clsx('min-w-[72px] font-bold text-xs lg:text-sm py-2 px-4 lg:py-4 lg:px-4 rounded-md flex gap-3 items-center justify-center hover:brightness-110 transition-colors duration-500',{
+                ' text-white bg-orange-400': btnAlt === false,
+                'text-orange-400 bg-transparent border-2 border-orange-400': btnAlt === true,
+                'disabled:opacity-60 ': isLoading
+            })}
+                
             onClick={Click}
         >
-            { children }
+            {children}
         </button>
     )
 }

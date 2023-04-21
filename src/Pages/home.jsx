@@ -1,6 +1,6 @@
 import { useNavigate, useOutletContext } from 'react-router-dom'
-import { Backpack, Book, Student} from 'phosphor-react'
-import { useEffect, useRef } from 'react';
+import { Backpack, Book, CircleNotch, Student} from 'phosphor-react'
+import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import * as yup from "yup";
 
@@ -20,36 +20,40 @@ import { gql, useQuery } from 'urql';
 
 const schema = yup.object({
     name: yup.string().required("preencha o campo"),
-    phone: yup.number().required('preencha o campo').max(11).min(11),
+    phone: yup.number().required('preencha o campo').min(8),
     email: yup.string().email().required('preencha o campo'),
     subject: yup.string().required('preencha o campo'),
     message: yup.string().max(500).required('preencha o campo')
 });
 
 
-export function Home({data}) {
+export function Home() {
 
     const {home, about, courses} = useOutletContext();
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const navigate = useNavigate()
     const form = useRef();
-     
-
+    
+    
     async function sendEmail(e) {
         e.preventDefault();
-        const inputs = {
-            name: form.current.name.value,
-            phone: form.current.tel.value,
-            email: form.current.email.value,
-            subject: form.current.subject.value,
-            message: form.current.message.value,
-        }
+        setIsLoading(true);
 
         try {
+            const inputs = {
+                name: form.current.name.value,
+                phone: form.current.tel.value,
+                email: form.current.email.value,
+                subject: form.current.subject.value,
+                message: form.current.message.value,
+            }
             await schema.validate(inputs)
         } catch (error) {
+            console.log(error.message)
             alert('você não preencheu os campos defidamente, revise antes de enviar')
+            setIsLoading(false);
             // e.target.reset()
             return
         }
@@ -57,8 +61,10 @@ export function Home({data}) {
         emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLETE_MESSAGE, form.current, import.meta.env.VITE_PUBLIC_KEY)
         .then((result) => {
             alert('success')
+            setIsLoading(false);
         }, (error) => {
             alert('error')
+            setIsLoading(false);
         });
 
         e.target.reset()
@@ -203,13 +209,17 @@ export function Home({data}) {
                             id="message"
                             label="mensagem"
                             placeholder="Digite sua mensagem"
-                            name="mensagem"
+                            name="message"
                             
                         />
 
                         <div className='w-[50%]'>
-                        <Button>
-                            Enviar
+                        <Button isLoading={isLoading} btnAlt={false}>
+                           {
+                            !isLoading ? 'Enviar' : (
+                                <CircleNotch size={24} weight="bold" className="animate-spin  text-white"/>
+                            )
+                            }
                         </Button>
                         </div>
                         
