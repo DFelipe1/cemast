@@ -27,7 +27,7 @@
 <p align="center">
  <a href="#about">Sobre</a> •
  <a href="#technologies">Tecnologias</a> •
- <a href="#exprience">Experiênciasr</a> •
+ <a href="#exprience">Experiências</a> •
  <a href="#author">Autor</a> •
  <a href="#license">Licença</a>
 </p>
