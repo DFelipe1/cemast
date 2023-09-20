@@ -22,7 +22,7 @@
 
 </div>
 
-<p align="center"> Aplicação desencolcida por mim 💻🚀 </p>
+<p align="center"> Aplicação desenvolvida por mim 💻🚀 </p>
 
 <p align="center">
  <a href="#about">Sobre</a> •
